@@ -1,0 +1,11 @@
+{
+  "name": "explosivejames.animesh",
+  "displayName": "Animesh",
+  "version": "0.9.0",
+  "type": "tool",
+  "dependencies": {
+    "com.unity.editorcoroutines": "1.0.0"
+  },
+  "description": "A tool that bakes animations into textures to be played by a shader.",
+  "unity": "2021.2"
+}

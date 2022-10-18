@@ -1,0 +1,21 @@
+#pragma kernel CSMain
+
+RWStructuredBuffer<float3> Initial_Positions;
+
+RWStructuredBuffer<float3> Updated_Positions;
+RWStructuredBuffer<float3> Updated_Normals;
+
+float3 Root_Position;
+int Vertical_Offset;
+
+RWTexture2D<float4> Position_Tex;
+RWTexture2D<float4> Normal_Tex;
+
+[numthreads(8,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    int2 pixel = int2(id.x, Vertical_Offset);
+    
+    Position_Tex[pixel] = float4((Updated_Positions[id.x] - Root_Position) - Initial_Positions[id.x], 1.0);
+    Normal_Tex[pixel] = float4(Updated_Normals[id.x], 1.0);
+}
