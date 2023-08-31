@@ -106,6 +106,7 @@ namespace AnimeshEditor.Rendering
                     yield return inst;
                 }
 
+
                 // Converting render textures to texture2ds.
                 Texture2D finalPositionTex = positionTex.ToTexture2D();
                 Texture2D finalNormalTex = normalTex.ToTexture2D();
